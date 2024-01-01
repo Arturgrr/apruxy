@@ -10,4 +10,4 @@ Feito usando discord.js para testar e praticar meus conhecimentos programando bo
 
     [ ] Colocar os Handlers fora da pasta client
     
-    [ ] Adicionar novos comandos para o bot,
+    [ ] Melhorar o sistema de subcommands

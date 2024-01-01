@@ -1,4 +1,7 @@
 { 
+    "bot": {
+        "invalidInteraction": "❌ Invalid interaction!"
+    },
     "botinfo": {
         "title": "Hello, I'm Apruxy 👋",
         "description": " > Hi, my name is Apruxy, I'm an Axolotl Robot and I'm surfing this digital ocean! 🌊\n\nI am currently present on ``{{serverNumber}}`` servers with ``{{commandsNumber}}`` commands 🥳\n\nMy pure soul was coded in [Typescript](https://www.typescriptlang.org/) using [Discord.js](https://discord.js.org/) 🔧\n\nToday I only know how to speak **Brazilian Portuguese** and **English**, who knows, maybe one day I will be able to learn new languages? 🤩\n\n> Since <t:1703905200:D>, trying to transform the world! \n> I've been used ``{{usedTimes}}`` times ⭐️",
