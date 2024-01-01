@@ -5,12 +5,15 @@ import {
   GatewayIntentBits,
   Interaction,
   Partials,
+  REST,
+  Routes,
 } from 'discord.js'
 import fs from 'fs'
 import path from 'path'
 import BaseCommand from './structs/base-command'
 import { PrismaClient } from '@prisma/client'
 import { prisma } from './lib/prisma'
+import { env } from './env'
 
 export class ApruxyClient extends Client {
   public commands = new Collection()
@@ -69,6 +72,7 @@ export class ApruxyClient extends Client {
   async registerCommands() {
     const foldersPath = path.join(__dirname, 'commands')
     const commandFolders = fs.readdirSync(foldersPath)
+    const commandsList = []
 
     for (const folder of commandFolders) {
       const commandPath = path.join(foldersPath, folder)
@@ -79,7 +83,26 @@ export class ApruxyClient extends Client {
         const filePath = path.join(commandPath, file)
         const { default: CommandClass } = await import(filePath)
         this.commands.set(CommandClass.data.name, new CommandClass(this))
+        commandsList.push(CommandClass.data.toJSON())
       }
+    }
+
+    const rest = new REST({ version: '10' }).setToken(env.BOT_TOKEN)
+
+    try {
+      console.log(
+        `🤔 Started refreshing ${commandsList.length} application (/) commands.`,
+      )
+
+      await rest.put(Routes.applicationCommands(env.CLIENT_ID), {
+        body: commandsList,
+      })
+
+      console.log(
+        `✅ Successfully reloaded ${commandsList.length} application (/) commands.`,
+      )
+    } catch (error) {
+      console.error(error)
     }
   }
 }
