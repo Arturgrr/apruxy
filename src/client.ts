@@ -9,9 +9,12 @@ import {
 import fs from 'fs'
 import path from 'path'
 import BaseCommand from './structs/base-command'
+import { PrismaClient } from '@prisma/client'
+import { prisma } from './lib/prisma'
 
 export class ApruxyClient extends Client {
   public commands = new Collection()
+  public readonly db: PrismaClient = prisma
   constructor() {
     super({
       intents: [

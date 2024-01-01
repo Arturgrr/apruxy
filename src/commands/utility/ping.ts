@@ -7,6 +7,6 @@ export default class PingCommand extends BaseCommand {
   )
 
   async execute(interaction: CommandInteraction<CacheType>) {
-    await interaction.reply('Pong!')
+    await interaction.reply({ content: 'Pong!', ephemeral: true })
   }
 }
