@@ -6,6 +6,8 @@ const envSchema = z.object({
   BOT_TOKEN: z.string(),
   DATABASE_URL: z.string(),
   CLIENT_ID: z.string(),
+  GUILD_ID: z.string(),
+  OWNER_ID: z.string(),
 })
 
 const _env = envSchema.safeParse(process.env)

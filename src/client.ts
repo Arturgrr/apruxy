@@ -47,6 +47,28 @@ export class ApruxyClient extends Client {
       if (!command) return
 
       try {
+        this.db.user
+          .findUnique({ where: { id: parseInt(interaction.user.id) } })
+          .then(async (user) => {
+            if (user) {
+              await this.db.user.update({
+                where: { id: parseInt(interaction.user.id) },
+                data: {
+                  commandsCounter: user.commandsCounter + 1,
+                },
+              })
+            } else {
+              console.log('Creating new user')
+              await this.db.user.create({
+                data: {
+                  id: parseInt(interaction.user.id),
+                  commandsCounter: 1,
+                },
+              })
+              console.log('Created new user')
+            }
+          })
+
         await (command as BaseCommand).execute(interaction)
       } catch (e) {
         console.error(e)
@@ -94,9 +116,18 @@ export class ApruxyClient extends Client {
         `🤔 Started refreshing ${commandsList.length} application (/) commands.`,
       )
 
-      await rest.put(Routes.applicationCommands(env.CLIENT_ID), {
-        body: commandsList,
-      })
+      if (env.NODE_ENV === 'dev') {
+        await rest.put(
+          Routes.applicationGuildCommands(env.CLIENT_ID, env.GUILD_ID),
+          {
+            body: commandsList,
+          },
+        )
+      } else {
+        await rest.put(Routes.applicationCommands(env.CLIENT_ID), {
+          body: commandsList,
+        })
+      }
 
       console.log(
         `✅ Successfully reloaded ${commandsList.length} application (/) commands.`,
