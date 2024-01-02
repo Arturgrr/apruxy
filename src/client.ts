@@ -86,7 +86,7 @@ export class ApruxyClient extends Client {
         `🤔 Started refreshing ${commandsList.length} application (/) commands.`,
       )
 
-      if (env.NODE_ENV !== 'dev') {
+      if (env.NODE_ENV === 'dev') {
         await rest.put(
           Routes.applicationGuildCommands(env.CLIENT_ID, env.GUILD_ID),
           {

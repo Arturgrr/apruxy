@@ -22,5 +22,6 @@
             "created": "📆 Created at:",
             "joined": "📆 Joined at:"
         }
-    }
+    },
+    "corals": "🐚 ``{{person}}`` has **{{quantity}}** corals!"
 }

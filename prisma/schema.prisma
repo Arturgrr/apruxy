@@ -13,6 +13,8 @@ datasource db {
 model User {
   id              BigInt @id
   commandsCounter Int    @default(0)
+  money           Int    @default(0)
+  vip             String @default("false")
 }
 
 model Guild {

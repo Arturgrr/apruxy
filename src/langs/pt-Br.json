@@ -22,5 +22,7 @@
                 "joined": "📆 Entrou em:"
             }
         }
-    }
+    },
+    "corals": "🐚 ``{{person}}`` tem **{{quantity}}** corais!"
+
 }
