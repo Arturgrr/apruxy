@@ -5,7 +5,7 @@
   "main": "build/index.js",
   "scripts": {
     "dev": "tsx watch ./src/index.ts",
-    "buid": "tsup ./src/index.ts"
+    "build": "tsup ./src/"
   },
   "keywords": [],
   "author": "",
