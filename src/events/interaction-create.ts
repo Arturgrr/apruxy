@@ -1,3 +1,4 @@
+import { translator } from '@/langs'
 import BaseCommand from '@/structs/base-command'
 import BaseEvent from '@/structs/base-event'
 import { Events, Interaction } from 'discord.js'
@@ -25,28 +26,51 @@ export default class InteractionCreateEvent extends BaseEvent {
               },
             })
           } else {
-            console.log('Creating new user')
             await this.client.db.user.create({
               data: {
                 id: parseInt(interaction.user.id),
                 commandsCounter: 1,
               },
             })
-            console.log('Created new user')
           }
         })
+
+      if (interaction.guildId) {
+        const id = parseInt(interaction.guildId)
+        this.client.db.guild
+          .findUnique({ where: { id } })
+          .then(async (guild) => {
+            if (guild) {
+              await this.client.db.guild.update({
+                where: { id },
+                data: {
+                  commandsCounter: guild.commandsCounter + 1,
+                },
+              })
+            } else {
+              await this.client.db.guild.create({
+                data: {
+                  id,
+                  commandsCounter: 1,
+                },
+              })
+            }
+          })
+      }
 
       await (command as BaseCommand).execute(interaction)
     } catch (e) {
       console.error(e)
+      const txt = translator.getFixedT(interaction.locale)
+
       if (interaction.replied || interaction.deferred) {
         await interaction.followUp({
-          content: 'There was an error while executing this command!',
+          content: txt('errorInCommand'),
           ephemeral: true,
         })
       } else {
         await interaction.reply({
-          content: 'There was an error while executing this command!',
+          content: txt('errorInCommand'),
           ephemeral: true,
         })
       }

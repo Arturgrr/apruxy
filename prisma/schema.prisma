@@ -11,13 +11,11 @@ datasource db {
 }
 
 model User {
-  id               BigInt   @id
-  commandsCounter  Int      @default(0)
-  fristInteraction DateTime @default(now())
+  id              BigInt @id
+  commandsCounter Int    @default(0)
 }
 
 model Guild {
-  id              BigInt   @id
-  commandsCounter Int      @default(0)
-  joinedAt        DateTime @default(now())
+  id              BigInt @id
+  commandsCounter Int    @default(0)
 }

@@ -4,11 +4,9 @@ Feito usando discord.js para testar e praticar meus conhecimentos programando bo
 
 ### TODO:
 
-- [ ] Fazer handler para eventos
+- [X] Fazer handler para eventos
 
 - [ ] Adicionar relacionamento da guild com o banco de dados a partir das interações
-
-- [ ] Colocar os Handlers fora da pasta client
     
 - [ ] Melhorar o sistema de subcommands
 

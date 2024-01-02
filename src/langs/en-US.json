@@ -1,6 +1,7 @@
 { 
     "botClient": {
-        "invalidInteraction": "❌ Invalid interaction!"
+        "invalidInteraction": "❌ Invalid interaction!",
+        "errorInCommand": "❌ An error occurred while executing the command!"
     },
     "bot": {
         "info": {
