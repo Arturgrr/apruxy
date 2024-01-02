@@ -8,6 +8,6 @@ Feito usando discord.js para testar e praticar meus conhecimentos programando bo
 
 - [X] Adicionar relacionamento da guild com o banco de dados a partir das interações
     
-- [ ] Melhorar o sistema de subcommands
+- [X] Melhorar o sistema de subcommands
 
 - Procurar saber se consigo criar dois comandos, sendo um comando bot e outro bot info como subcommand

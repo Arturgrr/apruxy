@@ -41,7 +41,7 @@ export default class UserCommand extends BaseCommand {
 
     switch (interaction.options.getSubcommand()) {
       case 'info':
-        await info(interaction, this.client)
+        await info(interaction)
         break
       default:
         await interaction.reply({

@@ -2,34 +2,14 @@ import { ApruxyClient } from '@/client'
 import { env } from '@/env'
 import { translator } from '@/langs'
 import {
-  ActionRowBuilder,
+  ChatInputCommandInteraction,
+  EmbedBuilder,
   ButtonBuilder,
   ButtonStyle,
-  ChatInputCommandInteraction,
-  CommandInteraction,
-  EmbedBuilder,
+  ActionRowBuilder,
 } from 'discord.js'
 
-const ping = async (interaction: CommandInteraction, client: ApruxyClient) => {
-  const txt = translator.getFixedT(interaction.locale)
-
-  const botPing = Math.round(client.ws.ping)
-  const apiPing = Math.round(interaction.createdTimestamp - Date.now())
-
-  const embed = new EmbedBuilder()
-  embed
-    .setAuthor({
-      name: txt('bot.ping.title'),
-    })
-    .setColor('#F3C7C8')
-    .setDescription(txt('bot.ping.description', { botPing, apiPing }))
-
-  await interaction.reply({
-    embeds: [embed],
-  })
-}
-
-const info = async (
+export const info = async (
   interaction: ChatInputCommandInteraction,
   client: ApruxyClient,
 ) => {
@@ -73,5 +53,3 @@ const info = async (
     components: [new ActionRowBuilder<ButtonBuilder>().addComponents(button)],
   })
 }
-
-export { ping, info }
