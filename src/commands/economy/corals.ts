@@ -8,16 +8,16 @@ import {
   User,
 } from 'discord.js'
 
-export default class CoralsCommand extends BaseCommand {
+export default class ConchsCommand extends BaseCommand {
   public static data: SlashCommandBuilder = <SlashCommandBuilder>(
     new SlashCommandBuilder()
-      .setName('corals')
+      .setName('conchs')
       .setNameLocalizations({
-        'pt-BR': 'corais',
+        'pt-BR': 'conchas',
       })
-      .setDescription('See how many corals you or others have')
+      .setDescription('See how many conchs you or others have')
       .setDescriptionLocalizations({
-        'pt-BR': 'Veja quantos corais você, ou outras pessoas tem',
+        'pt-BR': 'Veja quantos conchas você, ou outras pessoas tem',
       })
       .addUserOption(
         new SlashCommandUserOption()
@@ -25,9 +25,9 @@ export default class CoralsCommand extends BaseCommand {
           .setNameLocalizations({
             'pt-BR': 'usuário',
           })
-          .setDescription('The user to see how many corals they have')
+          .setDescription('The user to see how many conchs they have')
           .setDescriptionLocalizations({
-            'pt-BR': 'O usuário para ver quantos corais ele tem',
+            'pt-BR': 'O usuário para ver quantos conchas ele tem',
           })
           .setRequired(false),
       )
@@ -52,7 +52,7 @@ export default class CoralsCommand extends BaseCommand {
         }
 
         interaction.reply({
-          content: txt('corals', {
+          content: txt('conchs', {
             person: userOpt.username,
             quantity: user.money,
           }),

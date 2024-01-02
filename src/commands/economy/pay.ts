@@ -16,9 +16,9 @@ export default class PayCommand extends BaseCommand {
       .setNameLocalizations({
         'pt-BR': 'pagar',
       })
-      .setDescription('Send corals to someone')
+      .setDescription('Send conchs to someone')
       .setDescriptionLocalizations({
-        'pt-BR': 'Envie corais para alguém',
+        'pt-BR': 'Envie conchas para alguém',
       })
       .addUserOption(
         new SlashCommandUserOption()
@@ -26,9 +26,9 @@ export default class PayCommand extends BaseCommand {
           .setNameLocalizations({
             'pt-BR': 'usuário',
           })
-          .setDescription('The user to send corals')
+          .setDescription('The user to send conchs')
           .setDescriptionLocalizations({
-            'pt-BR': 'O usuário para enviar corais',
+            'pt-BR': 'O usuário para enviar conchas',
           })
           .setRequired(true),
       )
@@ -38,9 +38,9 @@ export default class PayCommand extends BaseCommand {
           .setNameLocalizations({
             'pt-BR': 'quantidade',
           })
-          .setDescription('The amount of corals to send')
+          .setDescription('The amount of conchs to send')
           .setDescriptionLocalizations({
-            'pt-BR': 'A quantidade de corais para enviar',
+            'pt-BR': 'A quantidade de conchas para enviar',
           })
           .setRequired(true),
       )
@@ -73,7 +73,7 @@ export default class PayCommand extends BaseCommand {
 
         if (user.money < amount) {
           return interaction.reply({
-            content: txt('pay.notEnoughCorals'),
+            content: txt('pay.notEnoughConchs'),
             ephemeral: true,
           })
         }

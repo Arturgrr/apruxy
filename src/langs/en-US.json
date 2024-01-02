@@ -23,13 +23,13 @@
             "joined": "📆 Joined at:"
         }
     },
-    "corals": "🐚 ``{{person}}`` has **{{quantity}}** corals!",
+    "conchs": "🐚 ``{{person}}`` has **{{quantity}}** conchs!",
     "daily": {
-        "success": " > You won **{{quantity}}** corals! 🐚",
-        "fail": " > You have already collected your daily corals today! 🐚\n\nTry again "
+        "success": " > You won **{{quantity}}** conchs! 🐚",
+        "fail": " > You have already collected your daily conchs today! 🐚\n\nTry again "
     },
     "pay": {
-        "notEnoughCorals": " > You don't have enough corals! 🐚",
-        "success": " > **{{sender}}** paid ``{{amount}}`` corals to **{{receiver}}**! 🐚"
+        "notEnoughconchs": " > You don't have enough conchs! 🐚",
+        "success": " > **{{sender}}** paid ``{{amount}}`` conchs to **{{receiver}}**! 🐚"
     }
 }

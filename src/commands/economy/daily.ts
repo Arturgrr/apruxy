@@ -13,9 +13,9 @@ export default class DailyCommand extends BaseCommand {
       .setNameLocalizations({
         'pt-BR': 'diário',
       })
-      .setDescription('Receive a daily amount of corals')
+      .setDescription('Receive a daily amount of conch')
       .setDescriptionLocalizations({
-        'pt-BR': 'Receba uma quantia diária de corais',
+        'pt-BR': 'Receba uma quantia diária de conchas',
       })
   )
 
