@@ -5,7 +5,7 @@ import { Events, Interaction } from 'discord.js'
 
 export default class InteractionCreateEvent extends BaseEvent {
   public static eventName = Events.InteractionCreate
-  public static once = true
+  public static once = false
 
   public async execute(interaction: Interaction) {
     if (!interaction.isCommand()) return

@@ -6,7 +6,7 @@ Feito usando discord.js para testar e praticar meus conhecimentos programando bo
 
 - [X] Fazer handler para eventos
 
-- [ ] Adicionar relacionamento da guild com o banco de dados a partir das interações
+- [X] Adicionar relacionamento da guild com o banco de dados a partir das interações
     
 - [ ] Melhorar o sistema de subcommands
 
