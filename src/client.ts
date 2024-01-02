@@ -101,11 +101,12 @@ export class ApruxyClient extends Client {
       const commandFiles = fs
         .readdirSync(commandPath)
         .filter((file) => file.endsWith('.ts' || '.js'))
+
       for (const file of commandFiles) {
         const filePath = path.join(commandPath, file)
         const { default: CommandClass } = await import(filePath)
         this.commands.set(CommandClass.data.name, new CommandClass(this))
-        commandsList.push(CommandClass.data.toJSON())
+        commandsList.push(CommandClass.data)
       }
     }
 
@@ -116,7 +117,7 @@ export class ApruxyClient extends Client {
         `🤔 Started refreshing ${commandsList.length} application (/) commands.`,
       )
 
-      if (env.NODE_ENV === 'dev') {
+      if (env.NODE_ENV !== 'dev') {
         await rest.put(
           Routes.applicationGuildCommands(env.CLIENT_ID, env.GUILD_ID),
           {

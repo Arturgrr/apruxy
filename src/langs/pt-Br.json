@@ -12,6 +12,14 @@
         "ping": {
             "title": "🏓 Pong!",
             "description": " > Minha latência é de ``{{botPing}}ms`` 📡\n> Latência da Api ``{{apiPing}}ms`` 📡"
+        },
+        "user": {
+            "info": {
+                "name": "👤 Nome:",
+                "id": "🪪 Id do Discord:",
+                "created": "📆 Criado em:",
+                "joined": "📆 Entrou em:"
+            }
         }
     }
 }

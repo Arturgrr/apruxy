@@ -1,5 +1,6 @@
 import { ApruxyClient } from '@/client'
 import {
+  ChatInputCommandInteraction,
   CommandInteraction,
   InteractionResponse,
   SlashCommandBuilder,
@@ -13,6 +14,6 @@ export default abstract class BaseCommand {
   }
 
   abstract execute(
-    interaction: CommandInteraction,
+    interaction: CommandInteraction | ChatInputCommandInteraction,
   ): Promise<void | InteractionResponse<true | false>>
 }

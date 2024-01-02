@@ -13,5 +13,13 @@
             "title": "🏓 Pong!",
             "description": " > My latency is ``{{botPing}}ms`` 📡\n> The Discord API latency is ``{{apiPing}}ms`` 📡"
         }
+    },
+    "user": {
+        "info": {
+            "name": "👤 Name:",
+            "id": "🪪 Discord id:",
+            "created": "📆 Created at:",
+            "joined": "📆 Joined at:"
+        }
     }
 }

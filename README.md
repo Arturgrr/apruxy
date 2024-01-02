@@ -11,3 +11,5 @@ Feito usando discord.js para testar e praticar meus conhecimentos programando bo
 - [ ] Colocar os Handlers fora da pasta client
     
 - [ ] Melhorar o sistema de subcommands
+
+- Procurar saber se consigo criar dois comandos, sendo um comando bot e outro bot info como subcommand
