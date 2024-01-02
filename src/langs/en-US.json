@@ -27,5 +27,9 @@
     "daily": {
         "success": " > You won **{{quantity}}** corals! 🐚",
         "fail": " > You have already collected your daily corals today! 🐚\n\nTry again "
+    },
+    "pay": {
+        "notEnoughCorals": " > You don't have enough corals! 🐚",
+        "success": " > **{{sender}}** paid ``{{amount}}`` corals to **{{receiver}}**! 🐚"
     }
 }

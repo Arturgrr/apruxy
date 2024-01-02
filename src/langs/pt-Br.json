@@ -27,6 +27,10 @@
     "daily": {
         "success": " > Você ganhou **{{quantity}}** corais! 🐚",
         "fail": " > Você já coletou seus corais hoje! 🐚\n\nPegue novamente "
+    },
+    "pay": {
+        "notEnoughCorals": " > Você não tem corais suficiente! 🐚",
+        "success": " > **{{sender}}** enviou ``{{amount}}`` corais para **{{receiver}}**! 🐚"
     }
 
 }
