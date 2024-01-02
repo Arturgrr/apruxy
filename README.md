@@ -2,10 +2,12 @@
 
 Feito usando discord.js para testar e praticar meus conhecimentos programando bots para Discord
 
-- TODO:
+### TODO:
 
-    [ ] Fazer handler para eventos
+- [ ] Fazer handler para eventos
 
-    [ ] Colocar os Handlers fora da pasta client
+    - [ ] Adicionar relacionamento dom o banco de dados a partir das interações
+
+- [ ] Colocar os Handlers fora da pasta client
     
-    [ ] Melhorar o sistema de subcommands
+- [ ] Melhorar o sistema de subcommands

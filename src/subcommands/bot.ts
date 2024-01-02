@@ -19,10 +19,10 @@ const ping = async (interaction: CommandInteraction, client: ApruxyClient) => {
   const embed = new EmbedBuilder()
   embed
     .setAuthor({
-      name: txt('ping.title'),
+      name: txt('bot.ping.title'),
     })
     .setColor('#F3C7C8')
-    .setDescription(txt('ping.description', { botPing, apiPing }))
+    .setDescription(txt('bot.ping.description', { botPing, apiPing }))
 
   await interaction.reply({
     embeds: [embed],
@@ -48,21 +48,21 @@ const info = async (
   const embed = new EmbedBuilder()
   embed
     .setAuthor({
-      name: txt('botinfo.title'),
+      name: txt('bot.info.title'),
       iconURL: client.user?.displayAvatarURL() || undefined,
     })
     .setColor('#F3C7C8')
     .setDescription(
-      txt('botinfo.description', { serverNumber, commandsNumber, usedTimes }),
+      txt('bot.info.description', { serverNumber, commandsNumber, usedTimes }),
     )
     .setThumbnail(client.user?.displayAvatarURL() || null)
     .setFooter({
-      text: txt('botinfo.footer'),
+      text: txt('bot.info.footer'),
       iconURL: client.users.cache.get(env.OWNER_ID)?.displayAvatarURL(),
     })
 
   const button = new ButtonBuilder({
-    label: txt('botinfo.button'),
+    label: txt('bot.info.button'),
     style: ButtonStyle.Link,
     url: `https://discord.com/oauth2/authorize?client_id=${env.CLIENT_ID}&scope=bot&permissions=1099511627775`,
     emoji: '💡',

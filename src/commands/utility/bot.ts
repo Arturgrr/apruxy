@@ -11,7 +11,6 @@ export default class BotCommand extends BaseCommand {
   public static data: SlashCommandBuilder = <SlashCommandBuilder>(
     new SlashCommandBuilder()
       .setName('bot')
-      .setDescription('Pong!')
       .addSubcommand((subcommand) =>
         subcommand
           .setName('ping')
@@ -42,7 +41,7 @@ export default class BotCommand extends BaseCommand {
         break
       default:
         await interaction.reply({
-          content: txt('bot.invalidInteraction'),
+          content: txt('botClient.invalidInteraction'),
           ephemeral: true,
         })
     }
