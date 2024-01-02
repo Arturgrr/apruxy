@@ -6,7 +6,7 @@ Feito usando discord.js para testar e praticar meus conhecimentos programando bo
 
 - [ ] Fazer handler para eventos
 
-    - [ ] Adicionar relacionamento dom o banco de dados a partir das interações
+- [ ] Adicionar relacionamento da guild com o banco de dados a partir das interações
 
 - [ ] Colocar os Handlers fora da pasta client
     

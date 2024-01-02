@@ -1,16 +1,13 @@
 import {
   Client,
   Collection,
-  Events,
   GatewayIntentBits,
-  Interaction,
   Partials,
   REST,
   Routes,
 } from 'discord.js'
 import fs from 'fs'
 import path from 'path'
-import BaseCommand from './structs/base-command'
 import { PrismaClient } from '@prisma/client'
 import { prisma } from './lib/prisma'
 import { env } from './env'
@@ -38,57 +35,29 @@ export class ApruxyClient extends Client {
     })
 
     this.registerCommands()
+    this.registerEvents()
+  }
 
-    this.on(Events.InteractionCreate, async (interaction: Interaction) => {
-      if (!interaction.isCommand()) return
+  async registerEvents() {
+    const eventsPath = path.join(__dirname, 'events')
+    const eventFiles = fs
+      .readdirSync(eventsPath)
+      .filter((file) => file.endsWith('.ts' || '.js'))
 
-      const command = this.commands.get(interaction.commandName)
-
-      if (!command) return
-
-      try {
-        this.db.user
-          .findUnique({ where: { id: parseInt(interaction.user.id) } })
-          .then(async (user) => {
-            if (user) {
-              await this.db.user.update({
-                where: { id: parseInt(interaction.user.id) },
-                data: {
-                  commandsCounter: user.commandsCounter + 1,
-                },
-              })
-            } else {
-              console.log('Creating new user')
-              await this.db.user.create({
-                data: {
-                  id: parseInt(interaction.user.id),
-                  commandsCounter: 1,
-                },
-              })
-              console.log('Created new user')
-            }
-          })
-
-        await (command as BaseCommand).execute(interaction)
-      } catch (e) {
-        console.error(e)
-        if (interaction.replied || interaction.deferred) {
-          await interaction.followUp({
-            content: 'There was an error while executing this command!',
-            ephemeral: true,
-          })
-        } else {
-          await interaction.reply({
-            content: 'There was an error while executing this command!',
-            ephemeral: true,
-          })
-        }
+    for (const file of eventFiles) {
+      const filePath = path.join(eventsPath, file)
+      const { default: EventClass } = await import(filePath)
+      const event = new EventClass(this)
+      if (event.constructor.once) {
+        this.once(event.constructor.eventName, (...args) =>
+          event.execute(...args),
+        )
+      } else {
+        this.on(event.constructor.eventName, (...args) =>
+          event.execute(...args),
+        )
       }
-    })
-
-    this.once('ready', () => {
-      console.log(`🤖 Bot is ready as ${this.user?.tag}`)
-    })
+    }
   }
 
   async registerCommands() {
