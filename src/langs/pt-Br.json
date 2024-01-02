@@ -23,6 +23,10 @@
             }
         }
     },
-    "corals": "🐚 ``{{person}}`` tem **{{quantity}}** corais!"
+    "corals": "🐚 ``{{person}}`` tem **{{quantity}}** corais!",
+    "daily": {
+        "success": " > Você ganhou **{{quantity}}** corais! 🐚",
+        "fail": " > Você já coletou seus corais hoje! 🐚\n\nPegue novamente "
+    }
 
 }

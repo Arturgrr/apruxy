@@ -23,5 +23,9 @@
             "joined": "📆 Joined at:"
         }
     },
-    "corals": "🐚 ``{{person}}`` has **{{quantity}}** corals!"
+    "corals": "🐚 ``{{person}}`` has **{{quantity}}** corals!",
+    "daily": {
+        "success": " > You won **{{quantity}}** corals! 🐚",
+        "fail": " > You have already collected your daily corals today! 🐚\n\nTry again "
+    }
 }

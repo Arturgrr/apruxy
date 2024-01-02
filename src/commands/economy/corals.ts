@@ -8,7 +8,7 @@ import {
   User,
 } from 'discord.js'
 
-export default class BotCommand extends BaseCommand {
+export default class CoralsCommand extends BaseCommand {
   public static data: SlashCommandBuilder = <SlashCommandBuilder>(
     new SlashCommandBuilder()
       .setName('corals')

@@ -13,8 +13,11 @@ datasource db {
 model User {
   id              BigInt @id
   commandsCounter Int    @default(0)
-  money           Int    @default(0)
   vip             String @default("false")
+
+  //Economy
+  money     Int      @default(0)
+  lastDaily DateTime @default(dbgenerated("now() - interval '24 hours'"))
 }
 
 model Guild {
