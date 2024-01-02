@@ -7,5 +7,9 @@
         "description": " > Olá, meu nome é Apruxy, sou um robô Axolote e estou navegando neste oceano digital! 🌊\n\nAtualmente estou presente em ``{{serverNumber}}`` servidores com ``{{commandsNumber}}`` comandos 🥳\n\nMinha alma pura foi programada com [Typescript](https://www.typescriptlang.org/) usando [Discord.js](https://discord.js.org/) 🔧\n\nHoje só sei falar o **Português do Brasil** e **Inglês**, quem sabe um dia conseguirei aprender novos idiomas? 🤩\n\n> Desde <t:1703905200:D>, tentando transformar o mundo! \n> Eu fui usada ``{{usedTimes}}`` vezes ⭐️",
         "footer": "Criada por arturgrr",
         "button": "Me adicione!"
+    },
+    "ping": {
+        "title": "🏓 Pong!",
+        "description": " > Minha latência é de ``{{botPing}}ms`` 📡\n> Latência da Api ``{{apiPing}}ms`` 📡"
     }
 }

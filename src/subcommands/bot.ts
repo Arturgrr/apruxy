@@ -11,9 +11,21 @@ import {
 } from 'discord.js'
 
 const ping = async (interaction: CommandInteraction, client: ApruxyClient) => {
-  const text = `🏓 Pong!\n` + '``' + `${client.ws.ping}` + '`` ms'
+  const txt = translator.getFixedT(interaction.locale)
+
+  const botPing = Math.round(client.ws.ping)
+  const apiPing = Math.round(interaction.createdTimestamp - Date.now())
+
+  const embed = new EmbedBuilder()
+  embed
+    .setAuthor({
+      name: txt('ping.title'),
+    })
+    .setColor('#F3C7C8')
+    .setDescription(txt('ping.description', { botPing, apiPing }))
+
   await interaction.reply({
-    content: text,
+    embeds: [embed],
   })
 }
 

@@ -4,8 +4,6 @@ Feito usando discord.js para testar e praticar meus conhecimentos programando bo
 
 - TODO:
 
-    [X] Registrar Slash Commands
-
     [ ] Fazer handler para eventos
 
     [ ] Colocar os Handlers fora da pasta client
