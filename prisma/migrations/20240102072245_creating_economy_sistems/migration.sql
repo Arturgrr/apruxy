@@ -1,3 +1,0 @@
--- AlterTable
-ALTER TABLE "User" ADD COLUMN     "money" INTEGER NOT NULL DEFAULT 0,
-ADD COLUMN     "vip" TEXT NOT NULL DEFAULT 'false';

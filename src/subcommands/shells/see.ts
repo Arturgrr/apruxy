@@ -11,13 +11,13 @@ export const seeSubCommand = async (
 
   await client.db.user
     .findUnique({
-      where: { id: parseInt(userOpt.id) },
+      where: { id: userOpt.id },
     })
     .then(async (user) => {
       if (!user) {
         user = await client.db.user.create({
           data: {
-            id: parseInt(userOpt.id),
+            id: userOpt.id,
           },
         })
       }

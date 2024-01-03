@@ -19,13 +19,13 @@ export const sendSubCommand = async (
 
   await client.db.user
     .findUnique({
-      where: { id: parseInt(interaction.user.id) },
+      where: { id: interaction.user.id },
     })
     .then(async (user) => {
       if (!user) {
         user = await client.db.user.create({
           data: {
-            id: parseInt(interaction.user.id),
+            id: interaction.user.id,
           },
         })
       }
@@ -38,7 +38,7 @@ export const sendSubCommand = async (
       }
 
       await client.db.user.update({
-        where: { id: parseInt(interaction.user.id) },
+        where: { id: interaction.user.id },
         data: {
           money: user.money - amount,
         },
@@ -47,19 +47,19 @@ export const sendSubCommand = async (
 
   await client.db.user
     .findUnique({
-      where: { id: parseInt(userOpt.id) },
+      where: { id: userOpt.id },
     })
     .then(async (user) => {
       if (!user) {
         user = await client.db.user.create({
           data: {
-            id: parseInt(userOpt.id),
+            id: userOpt.id,
           },
         })
       }
 
       await client.db.user.update({
-        where: { id: parseInt(userOpt.id) },
+        where: { id: userOpt.id },
         data: {
           money: user.money + amount,
         },

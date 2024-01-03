@@ -10,7 +10,7 @@ export const dailySubCommand = async (
 
   await client.db.user
     .findUnique({
-      where: { id: parseInt(interaction.user.id) },
+      where: { id: interaction.user.id },
     })
     .then(async (user) => {
       if (!user) {
@@ -31,7 +31,7 @@ export const dailySubCommand = async (
       const value = Math.floor(Math.random() * (3000 - 1499 + 1)) + 1499
 
       await client.db.user.update({
-        where: { id: parseInt(interaction.user.id) },
+        where: { id: interaction.user.id },
         data: {
           money: user.money + value,
           lastDaily: new Date(),

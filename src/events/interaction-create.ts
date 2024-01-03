@@ -16,11 +16,11 @@ export default class InteractionCreateEvent extends BaseEvent {
 
     try {
       this.client.db.user
-        .findUnique({ where: { id: parseInt(interaction.user.id) } })
+        .findUnique({ where: { id: interaction.user.id } })
         .then(async (user) => {
           if (user) {
             await this.client.db.user.update({
-              where: { id: parseInt(interaction.user.id) },
+              where: { id: interaction.user.id },
               data: {
                 commandsCounter: user.commandsCounter + 1,
               },
@@ -28,7 +28,7 @@ export default class InteractionCreateEvent extends BaseEvent {
           } else {
             await this.client.db.user.create({
               data: {
-                id: parseInt(interaction.user.id),
+                id: interaction.user.id,
                 commandsCounter: 1,
               },
             })
@@ -36,7 +36,7 @@ export default class InteractionCreateEvent extends BaseEvent {
         })
 
       if (interaction.guildId) {
-        const id = parseInt(interaction.guildId)
+        const id = interaction.guildId
         this.client.db.guild
           .findUnique({ where: { id } })
           .then(async (guild) => {
