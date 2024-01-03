@@ -1,10 +1,11 @@
 import { translator } from '@/langs'
 import BaseCommand from '@/structs/base-command'
-import { info } from '@/subcommands/user'
+import { infoSubCommand } from '@/subcommands/user'
 import {
   CacheType,
   ChatInputCommandInteraction,
   SlashCommandBuilder,
+  SlashCommandSubcommandBuilder,
   SlashCommandUserOption,
 } from 'discord.js'
 
@@ -12,12 +13,12 @@ export default class UserCommand extends BaseCommand {
   public static data: SlashCommandBuilder = <SlashCommandBuilder>(
     new SlashCommandBuilder()
       .setName('user')
-      .setDescription('A bunch of user commands')
+      .setDescription('Some user commands')
       .setDescriptionLocalizations({
-        'pt-BR': 'Um monte de comandos do usuário',
+        'pt-BR': 'Alguns comandos do usuário',
       })
-      .addSubcommand((subcommand) =>
-        subcommand
+      .addSubcommand(
+        new SlashCommandSubcommandBuilder()
           .setName('info')
           .setDescription('Get user info')
           .setDescriptionLocalizations({
@@ -41,7 +42,7 @@ export default class UserCommand extends BaseCommand {
 
     switch (interaction.options.getSubcommand()) {
       case 'info':
-        await info(interaction)
+        await infoSubCommand(interaction)
         break
       default:
         await interaction.reply({

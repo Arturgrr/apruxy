@@ -9,7 +9,7 @@ import {
   ActionRowBuilder,
 } from 'discord.js'
 
-export const info = async (
+export const infoSubCommand = async (
   interaction: ChatInputCommandInteraction,
   client: ApruxyClient,
 ) => {

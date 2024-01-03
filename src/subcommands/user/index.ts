@@ -1,3 +1,1 @@
-import { info } from './info'
-
-export { info }
+export { infoSubCommand } from './info'

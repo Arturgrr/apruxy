@@ -1,30 +1,31 @@
 import { translator } from '@/langs'
 import BaseCommand from '@/structs/base-command'
-import { info, ping } from '@/subcommands/bot'
+import { infoSubCommand, pingSubCommand } from '@/subcommands/bot'
 import {
   CacheType,
   ChatInputCommandInteraction,
   SlashCommandBuilder,
+  SlashCommandSubcommandBuilder,
 } from 'discord.js'
 
 export default class BotCommand extends BaseCommand {
   public static data: SlashCommandBuilder = <SlashCommandBuilder>(
     new SlashCommandBuilder()
       .setName('bot')
-      .setDescription('A bunch of bot commands')
+      .setDescription('Some bot commands')
       .setDescriptionLocalizations({
-        'pt-BR': 'Um monte de comandos do bot',
+        'pt-BR': 'Alguns comandos do bot',
       })
-      .addSubcommand((subcommand) =>
-        subcommand
+      .addSubcommand(
+        new SlashCommandSubcommandBuilder()
           .setName('ping')
           .setDescription('Replies with pong!')
           .setDescriptionLocalizations({
             'pt-BR': 'Responde com pong!',
           }),
       )
-      .addSubcommand((subcommand) =>
-        subcommand
+      .addSubcommand(
+        new SlashCommandSubcommandBuilder()
           .setName('info')
           .setDescription('Get bot info')
           .setDescriptionLocalizations({
@@ -38,10 +39,10 @@ export default class BotCommand extends BaseCommand {
 
     switch (interaction.options.getSubcommand()) {
       case 'ping':
-        await ping(interaction, this.client)
+        await pingSubCommand(interaction, this.client)
         break
       case 'info':
-        await info(interaction, this.client)
+        await infoSubCommand(interaction, this.client)
         break
       default:
         await interaction.reply({

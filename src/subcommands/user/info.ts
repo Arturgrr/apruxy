@@ -1,7 +1,9 @@
 import { translator } from '@/langs'
 import { ChatInputCommandInteraction, EmbedBuilder } from 'discord.js'
 
-export const info = async (interaction: ChatInputCommandInteraction) => {
+export const infoSubCommand = async (
+  interaction: ChatInputCommandInteraction,
+) => {
   const txt = translator.getFixedT(interaction.locale)
 
   const user = interaction.options.getUser('user') || interaction.user

@@ -1,4 +1,2 @@
-import { info } from './info'
-import { ping } from './ping'
-
-export { ping, info }
+export { infoSubCommand } from './info'
+export { pingSubCommand } from './ping'

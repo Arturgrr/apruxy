@@ -2,7 +2,7 @@ import { ApruxyClient } from '@/client'
 import { translator } from '@/langs'
 import { CommandInteraction, EmbedBuilder } from 'discord.js'
 
-export const ping = async (
+export const pingSubCommand = async (
   interaction: CommandInteraction,
   client: ApruxyClient,
 ) => {

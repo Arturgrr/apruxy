@@ -13,24 +13,23 @@
         "ping": {
             "title": "🏓 Pong!",
             "description": " > Minha latência é de ``{{botPing}}ms`` 📡\n> Latência da Api ``{{apiPing}}ms`` 📡"
-        },
-        "user": {
-            "info": {
-                "name": "👤 Nome:",
-                "id": "🪪 Id do Discord:",
-                "created": "📆 Criado em:",
-                "joined": "📆 Entrou em:"
-            }
         }
     },
-    "conchs": "🐚 ``{{person}}`` tem **{{quantity}}** conchas!",
+    "user": {
+        "info": {
+            "name": "👤 Nome:",
+            "id": "🪪 Id do Discord:",
+            "created": "📆 Criado em:",
+            "joined": "📆 Entrou em:"
+        }
+    },
+    "shells": "🐚 ``{{person}}`` tem **{{quantity}}** conchas!",
     "daily": {
         "success": " > Você ganhou **{{quantity}}** conchas! 🐚",
         "fail": " > Você já coletou seus conchas hoje! 🐚\n\nPegue novamente "
     },
-    "pay": {
-        "notEnoughConchs": " > Você não tem conchas suficiente! 🐚",
+    "send": {
+        "notEnoughShells": " > Você não tem conchas suficiente! 🐚",
         "success": " > **{{sender}}** enviou ``{{amount}}`` conchas para **{{receiver}}**! 🐚"
     }
-
 }
