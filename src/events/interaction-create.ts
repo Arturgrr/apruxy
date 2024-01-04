@@ -30,6 +30,7 @@ export default class InteractionCreateEvent extends BaseEvent {
               data: {
                 id: interaction.user.id,
                 commandsCounter: 1,
+                lastDaily: new Date(new Date().getTime() - 24 * 60 * 60 * 1000),
               },
             })
           }

@@ -18,6 +18,7 @@ export const seeSubCommand = async (
         user = await client.db.user.create({
           data: {
             id: userOpt.id,
+            lastDaily: new Date(new Date().getTime() - 24 * 60 * 60 * 1000),
           },
         })
       }
