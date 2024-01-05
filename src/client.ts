@@ -40,9 +40,7 @@ export class ApruxyClient extends Client {
 
   async registerEvents() {
     const eventsPath = path.join(__dirname, 'events')
-    const eventFiles = fs
-      .readdirSync(eventsPath)
-      .filter((file) => file.endsWith('.ts' || '.js'))
+    const eventFiles = fs.readdirSync(eventsPath)
 
     for (const file of eventFiles) {
       const filePath = path.join(eventsPath, file)
@@ -67,9 +65,7 @@ export class ApruxyClient extends Client {
 
     for (const folder of commandFolders) {
       const commandPath = path.join(foldersPath, folder)
-      const commandFiles = fs
-        .readdirSync(commandPath)
-        .filter((file) => file.endsWith('.ts' || '.js'))
+      const commandFiles = fs.readdirSync(commandPath)
 
       for (const file of commandFiles) {
         const filePath = path.join(commandPath, file)
