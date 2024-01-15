@@ -7,5 +7,3 @@ Ao longo do desenvolvimento, explorei e aprofundei meus conhecimentos em TypeScr
 A utilização do Prisma contribuiu para a eficiente gestão e interação com o banco de dados, enquanto a implementação do i18next permitiu a internacionalização do bot para uma experiência mais inclusiva.
 
 Programar bots para Discord sempre foi uma paixão e uma ferramenta valiosa para meu aprendizado em programação. Apruxy, embora seja um projeto relativamente simples, oferece uma variedade de comandos relacionados a economia, informações e muito mais.
-
-Sinta-se à vontade para explorar, contribuir e adaptar Apruxy de acordo com suas necessidades. Seja bem-vindo ao repositório!
